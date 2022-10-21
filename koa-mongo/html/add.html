@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+<body>
+  <form action="http://localhost:8080/doAdd" method="post" role="form" enctype="multipart/form-data">
+    <legend>添加数据</legend>
+    <div class="form-group">
+      <label for="">电影名</label>
+      <input type="text" name="title" class="form-control" placeholder="电影名">
+    </div>
+    <div class="form-group">
+      <label for="">上传图片</label>
+      <input type="file" name="file">
+    </div>
+    <div class="form-group">
+      <label for="">slogo</label>
+      <input type="text" name="slogo" class="form-control" placeholder="slogo">
+    </div>
+    <div class="form-group">
+      <label for="">点评人数</label>
+      <input type="text" name="evaluate" class="form-control" placeholder="点评人数">
+    </div>
+    <div class="form-group">
+      <label for="">评分</label>
+      <input type="text" name="rating" class="form-control" placeholder="评分">
+    </div>
+    <div class="form-group">
+      <label for="">是否收藏</label>
+      <input type="checkbox" name="collected">
+    </div>
+    <div class="form-group">
+      <label for="">为电影选择标签</label>
+      <div>
+        <input type="checkbox" name="labels" id="美国" value="美国">
+        <label for="美国">美国</label>
+      </div>
+      <div>
+        <input type="checkbox" name="labels" id="奇幻" value="奇幻">
+        <label for="奇幻">奇幻</label>
+      </div>
+      <div>
+        <input type="checkbox" name="labels" id="灾难" value="灾难">
+        <label for="灾难">灾难</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+</html>

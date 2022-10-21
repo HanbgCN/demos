@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+  <div id="app">
+    <img :src="movie.pic" alt="">
+    <p>{{ movie.title }}</p>
+  </div>
+  <script>
+    // const id = location.search.split
+    const queryOb = (() => {
+      const queryString = location.search?.substring(1)
+      const queryOb = {}
+      if (queryString) {
+        const queryList = queryString.split('&')
+        queryList.forEach(query => {
+          const nameValue = query.split('=')
+          queryOb[nameValue[0]] = nameValue[1]
+          // queryArr.push({
+          //   name: nameValue[0],
+          //   value: nameValue[1]
+          // })
+        })
+      }
+      return queryOb
+    })()
+
+    new Vue({
+      el: '#app',
+      data: {
+        movie: {}
+      },
+      created() {
+        $.ajax({
+          url: `http://localhost:8080/detail?id=${queryOb.id}`,
+          success: res => {
+            this.movie = res.res
+          }
+        })
+      }
+    })
+
+  </script>
+</body>
+</html>
